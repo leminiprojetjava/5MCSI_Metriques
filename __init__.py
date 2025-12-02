@@ -35,7 +35,35 @@ def meteo():
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
 
+@app.route('/commits-data/')
+def commits_data():
+    # Appel à l'API GitHub pour récupérer la liste des commits
+    response = urlopen('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits')
+    raw_content = response.read()
+    json_content = json.loads(raw_content.decode('utf-8'))
 
+    # Dictionnaire minute -> nombre de commits
+    commits_by_minute = {}
+
+    for commit in json_content:
+        # On récupère la date du commit : commit -> author -> date
+        date_str = commit.get('commit', {}).get('author', {}).get('date')
+        if date_str:
+            # Exemple de date : "2024-02-11T11:57:27Z"
+            date_object = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
+            minute = date_object.minute  # minute = 0 à 59
+            commits_by_minute[minute] = commits_by_minute.get(minute, 0) + 1
+
+    # Transformation en liste pour l'envoyer au front
+    results = []
+    for minute in sorted(commits_by_minute.keys()):
+        results.append({'minute': minute, 'count': commits_by_minute[minute]})
+
+    return jsonify(results=results)
+    
+@app.route("/commits/")
+def commits_graph():
+    return render_template("commits.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
