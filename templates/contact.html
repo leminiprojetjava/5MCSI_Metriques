@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        margin: 0;
+        padding: 0;
+        color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 60px auto;
+        background-color: #ffffff;
+        color: #333333;
+        border-radius: 12px;
+        padding: 30px 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 30px;
+        color: #666666;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #cccccc;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .button-row {
+        text-align: right;
+      }
+
+      button {
+        background-color: #2a5298;
+        border: none;
+        color: #ffffff;
+        padding: 10px 22px;
+        font-size: 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+      }
+
+      button:hover {
+        background-color: #1e3c72;
+        transform: translateY(-1px);
+      }
+
+      .footer-note {
+        margin-top: 15px;
+        font-size: 12px;
+        color: #777777;
+        text-align: center;
+      }
+
+      a.home-link {
+        display: inline-block;
+        margin-top: 15px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #2a5298;
+      }
+
+      a.home-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Page de contact</h1>
+      <p class="subtitle">
+        Laissez-moi un message : ce formulaire est décoratif pour le projet, il ne stocke rien.
+      </p>
+
+      <form>
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" />
+
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" placeholder="Écrivez ici votre message..."></textarea>
+
+        <div class="button-row">
+          <button type="submit">Envoyer (fictif)</button>
+        </div>
+      </form>
+
+      <div class="footer-note">
+        Ce formulaire est uniquement utilisé pour l&rsquo;exercice (aucune donnée n&rsquo;est enregistrée).
+      </div>
+
+      <div style="text-align:center;">
+        <a class="home-link" href="/">⟵ Retour à la page d'accueil</a>
+      </div>
+    </div>
+  </body>
+</html>
