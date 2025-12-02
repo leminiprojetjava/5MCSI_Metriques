@@ -14,6 +14,10 @@ def hello_world():
 @app.route("/contact/")
 def MaPremiereAPI():
     return "<h2>Ma page de contact</h2>"
+    
+@app.route("/rapport/")
+def mongraphique():
+    return render_template("graphique.html")
 
 
 @app.route('/tawarano/')
